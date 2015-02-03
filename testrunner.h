@@ -22,7 +22,7 @@ class TestRunner
 public:
     static TestRunner& Instance();
 
-    template <typename T> char RegisterTest(char *name) {
+    template <typename T> char RegisterTest(QString name) {
         if ( std::find_if( begin(m_tests), end(m_tests), [&name](QSharedPointer<QObject>& elem)
         { return elem->objectName() == name; }) == end(m_tests) ) {
             QSharedPointer<QObject> test(new T());
@@ -40,7 +40,7 @@ private:
 
 // Use this macro after your test declaration
 #define DECLARE_TEST(className)\
-    static char test_##className = TestRunner::Instance().RegisterTest<className>(#className);
+    static char test_##className = TestRunner::Instance().RegisterTest<className>(QString(#className));
 
 // Use this macro to execute all tests
 #define RUN_ALL_TESTS(argc, argv)\
