@@ -15,5 +15,6 @@ int main(int argc, char *argv[])
     QFile f(QString(a.applicationDirPath()+"/"+Parameters::DB_FILENAME));
 
     f.remove();
+    qDebug() << "Execution des tests de FactDev v"+QString::number(Parameters::VERSION);
     return RUN_ALL_TESTS(argc, argv);
 }
