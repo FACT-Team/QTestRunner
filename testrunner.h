@@ -32,7 +32,7 @@ public:
         return char(1);
     }
 
-    int RunAll(int argc, char *argv[]);
+    int RunAll();
 
 private:
    std::list<QSharedPointer<QObject>> m_tests;
@@ -43,7 +43,7 @@ private:
     static char test_##className = TestRunner::Instance().RegisterTest<className>(QString(#className));
 
 // Use this macro to execute all tests
-#define RUN_ALL_TESTS(argc, argv)\
-    TestRunner::Instance().RunAll(argc, argv);
+#define RUN_ALL_TESTS()\
+    TestRunner::Instance().RunAll();
 
 #endif // TESTRUNNER_H
