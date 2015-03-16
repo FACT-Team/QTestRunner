@@ -9,6 +9,7 @@ int TestRunner::RunAll() {
     int errorCode = 0;
     QStringList list;
     list << "" << "-silent";
+    qDebug() << "Exécution de " << m_tests.size() << " tests";
     std::for_each( begin(m_tests), end(m_tests), [&] (QSharedPointer<QObject>& test) {
         errorCode |= QTest::qExec(test.data(), list);
         std::cout << std::endl;
